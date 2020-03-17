@@ -1,0 +1,49 @@
+﻿<Window x:Name="ProgramWindow" x:Class="Intercars.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"        
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Intercars"
+        mc:Ignorable="d"
+        Title="[t.me/i_Koles]" Height="385" Width="640"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="ProgramWindow_MouseLeftButtonDown" Icon="Resources/programmer.ico"
+        >
+    <Grid>
+        <Rectangle Fill="#19F4F4F5" Height="50" VerticalAlignment="Top"/>
+        <Button x:Name="ExitProgram" Content="{materialDesign:PackIcon WindowClose}" Margin="0,10,10,0" FontSize="12" FontWeight="Normal" Height="30" Background="Red" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Click="ExitProgram_Click"/>
+        <Image x:Name="TelegramButton" Margin="10,5,0,0" Source="Resources/TelegramButton.png" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="35"/>
+        <Label x:Name="Developer" Content="Support" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" MouseDown="Developer_MouseDown"/>
+        <Label Content="[InterCars Parser]" Margin="242,10,0,350" HorizontalAlignment="Left" Width="153" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <RichTextBox x:Name="DebugBox" Height="285" Margin="0,50,0,0" VerticalAlignment="Top" FontSize="14" Block.LineHeight="6" Background="#33ECCECE" FontWeight="Normal" Foreground="#DDFFFFFF" BorderBrush="#897AFF0B" IsReadOnly="True" Padding="5,0,0,0" UseLayoutRounding="False" AllowDrop="True" VerticalScrollBarVisibility="Visible">
+            <FlowDocument/>
+        </RichTextBox>
+        <ProgressBar x:Name="WorkProgress" Height="35" Margin="0,340,0,0" VerticalAlignment="Top" Background="#7F554F4F" BorderBrush="{x:Null}">
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5" Angle="270"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#7FFF0000" Offset="0"/>
+                    <GradientStop Color="#FF673AB7" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
+        <Label x:Name="WorkProgressLabel" Content="0%" Margin="215,340,0,10" HorizontalAlignment="Left" Width="213" FontSize="16" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Rectangle x:Name="BaseDropDown" Fill="#FF554F4F" HorizontalAlignment="Left" Height="350" Margin="0,50,0,-15" VerticalAlignment="Top" Width="640" d:IsHidden="True"/>
+        <Rectangle x:Name="BaseDropDown_Copy" Fill="#FF635C5C" HorizontalAlignment="Left" Height="264" Margin="36,83,0,0" Stroke="#FFB2AAAA" VerticalAlignment="Top" Width="570" StrokeDashArray="5 10" StrokeDashCap="Round" StrokeLineJoin="Round" StrokeStartLineCap="Round" AllowDrop="True" DragEnter="BaseDropDown_Copy_DragEnter" DragLeave="BaseDropDown_Copy_DragLeave" Drop="BaseDropDown_Copy_Drop" d:IsHidden="True"/>
+        <Label x:Name="DropLable" Content="Перетащите Excel-файл в данную область" HorizontalAlignment="Center" Margin="180,175,174,177" VerticalAlignment="Center" AllowDrop="True" DragEnter="DropLable_DragEnter" DragLeave="DropLable_DragLeave" Drop="DropLable_Drop" Height="33" d:IsHidden="True"/>
+        <Image x:Name="ExcelImage" HorizontalAlignment="Left" Height="84" Margin="271,213,0,0" VerticalAlignment="Top" Width="85" Source="Resources/excel.png" AllowDrop="True" DragEnter="Image_DragEnter" DragLeave="Image_DragLeave" Drop="Image_Drop" d:IsHidden="True"/>
+    </Grid>
+
+
+</Window>
